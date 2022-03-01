@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  # Homepage 
+
+  get("/", {:controller => "application", :action => "homepage"})
+
+  # --------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM
@@ -47,8 +53,6 @@ Rails.application.routes.draw do
   get("/delete_bookmark/:path_id", { :controller => "bookmarks", :action => "destroy" })
 
   #------------------------------
-
-  get("/", {:controller => "movies", :action => "index"})
 
   # Routes for the Character resource:
 
