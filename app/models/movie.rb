@@ -13,9 +13,10 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
-
   belongs_to :director
 
   has_many :characters
 
+  validates :title, { :presence => true }
+  validates :director_id, { :presence => true }
 end
