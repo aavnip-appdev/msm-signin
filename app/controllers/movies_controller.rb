@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
       the_movie.save
       redirect_to("/movies", { :notice => "Movie created successfully." })
     else
-      redirect_to("/movies", { :notice => "Movie failed to create successfully." })
+      redirect_to("/movies", { :notice => "Movie failed to create successfully.", :alert => the_movie.errors.full_messages.to_sentence })
     end
   end
 

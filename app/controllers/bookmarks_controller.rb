@@ -53,4 +53,14 @@ class BookmarksController < ApplicationController
 
     redirect_to("/bookmarks", { :notice => "Bookmark deleted successfully."} )
   end
+
+  def create_from_movie_details
+    b = Bookmark.new
+    b.movie_id = params.fetch("movie_id")
+    b.user_id = params.fetch("current_user_id")
+    b.save
+        
+    redirect_to("/bookmarks", {:notice => "Bookmarked #{b.movie.title}"})
+  end
+
 end

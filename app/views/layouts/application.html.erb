@@ -15,8 +15,11 @@
   </head>
 
   <body>
-    
+    <!-- Only show sign in and out if user is not signed in, otherwise show movies, actors etc. -->
     <ul>
+    
+    <% if session.keys.exclude?(:user_id) %>
+
       <li>
         <a href="/movies">
         Movies 
@@ -64,9 +67,17 @@
         Bookmarks 
         </a>
       </li>
-
+    <% end %>
     </ul>
     
+    <h1 style="color: green">
+      <%= notice %>
+    </h1>
+
+    <h1 style="color: red">
+      <%= alert %>
+    </h1>
+
     <%= yield %>
   </body>
 </html>

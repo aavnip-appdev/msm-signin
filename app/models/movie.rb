@@ -18,5 +18,6 @@ class Movie < ApplicationRecord
   has_many :characters
 
   validates :title, { :presence => true }
+  validates :year, { :presence => true }
   validates :director_id, { :presence => true }
 end
