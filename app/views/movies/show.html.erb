@@ -19,6 +19,7 @@
     </div>
 
     <hr>
+      <% if @current_user != nil %>
       <% u_id = session.fetch(:user_id) %>
       
       <%#= Bookmark.
@@ -40,7 +41,7 @@
           Un-bookmark
         </a>
       <% end %>
-
+      <% end %>
       
     <hr>
 
