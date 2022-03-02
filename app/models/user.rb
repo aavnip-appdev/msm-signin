@@ -11,6 +11,9 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+  has_many :bookmarks
+  has_many :movies, :through => :bookmarks
+  
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
