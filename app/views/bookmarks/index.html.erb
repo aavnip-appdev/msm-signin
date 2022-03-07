@@ -1,18 +1,13 @@
 <div>
   <div>
     <h1>
-      <%= @current_user.first_name %>'s bookmarks
+      <%= @current_user.first_name %> <%= @current_user.last_name %>'s bookmarks
     </h1>
   </div>
 </div>
 
-<hr>
-
 <div>
   <div>
-    <h2>
-      Add a new bookmark
-    </h2>
 
     <form action="/insert_bookmark" method="post">
 
@@ -37,14 +32,6 @@
     <table border="1">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
           Movie
         </th>
 
@@ -58,17 +45,14 @@
 
         <th>
         </th>
+
+        <th>
+        </th>
+
       </tr>
 
       <% @list_of_bookmarks.each do |a_bookmark| %>
       <tr>
-        <td>
-          <%= a_bookmark.id %>
-        </td>
-
-        <td>
-          <%= a_bookmark.user.first_name %>
-        </td>
 
         <td>
           <%= a_bookmark.movie.title %>
@@ -86,6 +70,13 @@
             Show details
           </a>
         </td>
+
+        <td>
+          <a href="/delete_bookmark/<%= a_bookmark.id %>">
+            Un-bookmark
+          </a>
+        </td>
+
       </tr>
       <% end %>
     </table>
